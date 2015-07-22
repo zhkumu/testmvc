@@ -5,21 +5,21 @@
 	xmlns:util="http://www.springframework.org/schema/util" xmlns:s="http://www.springframework.org/schema/security"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 	http://www.springframework.org/schema/mvc
-	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 	http://www.springframework.org/schema/util 
-	http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd
 	http://www.springframework.org/schema/security 
-	http://www.springframework.org/schema/security/spring-security-3.0.xsd
+	http://www.springframework.org/schema/security/spring-security-4.0.xsd
 	http://www.springframework.org/schema/aop  
-    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
     http://www.springframework.org/schema/task  
-	http://www.springframework.org/schema/task/spring-task-3.0.xsd  
+	http://www.springframework.org/schema/task/spring-task-34.0.xsd  
 ">
 
 	<context:component-scan base-package="controller" />
@@ -28,5 +28,25 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="102400" />
+		<property name="defaultEncoding" value="utf-8"></property>
+	</bean>
+
+	<mvc:interceptors>
+		<!-- 按顺序执行以下拦截器 -->
+		<bean class="other.FirstFilter"></bean>
+		
+		 <!-- 针对某个路径（不）设置拦截器，同时也会执行全局的拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/secondFilter"/>
+			<bean class="other.SecondFilter" />
+		</mvc:interceptor>
+		<bean class="other.ThirdFilter"></bean>
+	</mvc:interceptors>
+
+<!-- 	<mvc:annotation-driven>
+	</mvc:annotation-driven> -->
 
 </beans>

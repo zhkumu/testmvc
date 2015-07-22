@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import bean.Student;
+
 @Controller
-@SessionAttributes(value="session")
+@SessionAttributes(value="session",types={Student.class})
 public class MainController {
 	
 	@RequestMapping("/testSessionAttribute")
@@ -40,5 +42,9 @@ public class MainController {
 		return "index";
 	}
 	
-	
+	@RequestMapping("/testMAError")
+	public String testModelAttributeError(Student student){
+		System.out.println("testModelAttributeError");
+		return "index";
+	}
 }
