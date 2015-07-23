@@ -34,8 +34,8 @@
 		<property name="defaultEncoding" value="utf-8"></property>
 	</bean>
 
-	<bean id="exceptionResolver" class="other.ErrorHandler" />
-
+	<!-- <bean id="exceptionResolver" class="other.ErrorHandler" />
+ -->
 	<mvc:interceptors>
 		<!-- 按顺序执行以下拦截器 -->
 		<bean class="other.FirstFilter"></bean>

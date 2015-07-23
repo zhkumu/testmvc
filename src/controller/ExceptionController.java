@@ -3,9 +3,14 @@ package controller;
 import java.rmi.AccessException;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import other.MuException;
 
 @Controller
 public class ExceptionController {
@@ -52,9 +57,28 @@ public class ExceptionController {
 	 * @param ex
 	 * @return
 	 */
-	@ExceptionHandler(AccessException.class)
+/*	@ExceptionHandler(AccessException.class)
 	public String SubHandler(Exception ex){
 		System.out.println("SubHandler");
+		return "error";
+	}*/
+	
+	/**
+	 * 修饰handler方法，即使方法能正确执行，页面只能响应错误的响应码和错误原因
+	 * @return
+	 */
+	@RequestMapping("/testStatus")
+	@ResponseStatus(reason="test",value=HttpStatus.NOT_ACCEPTABLE)
+	public String testStatus() {
+		System.out.println("testStatus");
+		return "error";
+	}
+	
+	@RequestMapping("/statusError")
+	public String statusError() throws MuException{
+		int i=1;
+		if(i==1)
+			throw new MuException("tset status");
 		return "error";
 	}
 	

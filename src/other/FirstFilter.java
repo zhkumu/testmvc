@@ -21,6 +21,7 @@ public class FirstFilter implements HandlerInterceptor {
 
 	/**
 	 * handler方法执行后执行
+	 * handler方法如果有异常就跳过这个方法
 	 */
 	@Override
 	public void postHandle(HttpServletRequest httpservletrequest,
