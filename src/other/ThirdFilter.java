@@ -13,7 +13,7 @@ public class ThirdFilter implements HandlerInterceptor {
 			HttpServletResponse httpservletresponse, Object obj)
 			throws Exception {
 		System.out.println("thirdpre");
-		return false;
+		return true;
 	}
 
 	@Override
