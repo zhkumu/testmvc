@@ -16,4 +16,15 @@
 		<servlet-name>mvc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!-- filter对象不能直接由ioc容器管理 -->
+<!-- 	
+	<filter>
+		<filter-name>mufilter</filter-name>
+		<filter-class>filter.MuFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>mufilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
 </web-app>
