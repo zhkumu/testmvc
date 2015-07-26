@@ -37,6 +37,7 @@
 	<!-- <bean id="exceptionResolver" class="other.ErrorHandler" />
  -->
 	<mvc:interceptors>
+		<bean class="other.IocFilter"></bean>
 		<!-- 按顺序执行以下拦截器 -->
 		<bean class="other.FirstFilter"></bean>
 		
@@ -47,6 +48,12 @@
 		</mvc:interceptor>
 		<bean class="other.ThirdFilter"></bean>
 	</mvc:interceptors>
+
+	<!-- 访问静态资源，但只能是非WEB-INF目录下的静态资源 
+		使用的serlvet是容器自身的default servlet，不同容器的名称可能不一样
+		功能较少不推荐使用
+	-->
+	<mvc:default-servlet-handler default-servlet-name="default"/>
 
 	<mvc:annotation-driven>
 	</mvc:annotation-driven>
