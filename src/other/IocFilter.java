@@ -34,7 +34,7 @@ public class IocFilter implements HandlerInterceptor {
 			Object arg2) throws Exception {
 		System.out.println("ok");
 		service.show();
-		return false;
+		return true;
 	}
 
 }
