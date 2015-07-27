@@ -1,13 +1,13 @@
 package bean;
 
 import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 public class Student {
 	@Max(10)
 	private int id;
-	@NotNull
+	@NotEmpty
 	private String name;
 	public Student(){
 		

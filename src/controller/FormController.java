@@ -10,7 +10,7 @@ import bean.Student;
 public class FormController {
 
 	@RequestMapping("/form")
-	public String form(){
+	public String form(Student student){
 		return "form";
 	}
 	

@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<form:form action="testBind" method="post">
+  	<form:form action="testBind" method="post" modelAttribute="student">
   		姓名：<form:input path="name" />
   		编码：<form:input path="id"/>
 		<input type="submit" value="submit">
