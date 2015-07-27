@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/util/spring-util-4.1.xsd
 
 ">
-
+	<context:component-scan base-package="bean" />
 	<context:component-scan base-package="service" />
 
 </beans>

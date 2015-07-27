@@ -1,8 +1,17 @@
 package bean;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+
+
 public class Student {
+	@Max(10)
 	private int id;
+	@NotNull
 	private String name;
+	public Student(){
+		
+	}
 	public int getId() {
 		return id;
 	}
