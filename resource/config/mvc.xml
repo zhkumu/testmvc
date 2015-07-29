@@ -67,7 +67,9 @@
 		使用的serlvet是容器自身的default servlet，不同容器的名称可能不一样
 		功能较少不推荐使用
 	-->
-	<mvc:default-servlet-handler default-servlet-name="default"/>
+<!-- 	<mvc:default-servlet-handler default-servlet-name="default"/> -->
+
+	<mvc:resources location="/static/" mapping="/static/**"></mvc:resources>
 
 	<!-- 指定某个的路径由哪个页面或哪个视图处理，不经过handler处理（视图名直接解析为对应的jsp页面），如果该路径已经有对应的映射，则忽略这个配置-->
 	<mvc:view-controller path="/viewController" view-name="index"/>
