@@ -24,5 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     ${ sessionScope.session }
+    index
   </body>
 </html>

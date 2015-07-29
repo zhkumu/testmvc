@@ -69,6 +69,19 @@
 	-->
 	<mvc:default-servlet-handler default-servlet-name="default"/>
 
+	<!-- 指定某个的路径由哪个页面或哪个视图处理，不经过handler处理（视图名直接解析为对应的jsp页面），如果该路径已经有对应的映射，则忽略这个配置-->
+	<mvc:view-controller path="/viewController" view-name="index"/>
+	<mvc:view-controller path="/index" view-name="index"/>
+	
+	<!-- 注册自己的视图名称 -->
+	<bean id="muView" class="other.MuView" />
+	<!-- 注册根据返回的视图名称去找相应的视图bean来得到view对象，上面的视图解析器得到的是InternalResourceView对象
+		 指定order的值提高该视图解析器的优先级
+	 -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="100"></property>
+	</bean>
+	
 	<mvc:annotation-driven>
 	</mvc:annotation-driven>
 
