@@ -2,3 +2,6 @@
 /.settings
 /.myeclipse
 /.mymetadata
+.classpath
+*.MF
+.classpath
