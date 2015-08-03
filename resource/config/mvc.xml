@@ -35,7 +35,7 @@
 		<property name="defaultEncoding" value="utf-8"></property>
 	</bean>
 
-	<bean class="filter.MuFilter"></bean>
+	<!-- <bean class="filter.MuFilter"></bean> -->
 
 	<!-- 指定国际化文件的路径，注意 basename为值为包路径加文件的前缀 -->
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -46,22 +46,22 @@
 	
 	<!-- <bean id="exceptionResolver" class="other.ErrorHandler" />
  	-->
-	<mvc:interceptors>
-		<!-- 通过某个指定的参数的值来设置语言，默认情况下为该参数名为locale -->
+<!-- 	<mvc:interceptors>
+		通过某个指定的参数的值来设置语言，默认情况下为该参数名为locale
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" >
-			<!-- <property name="paramName" value="language" /> -->
+			<property name="paramName" value="language" />
 		</bean>
 		<bean class="other.IocFilter"></bean>
-		<!-- 按顺序执行以下拦截器 -->
+		按顺序执行以下拦截器
 		<bean class="other.FirstFilter"></bean>
 		
-		 <!-- 针对某个路径（不）设置拦截器，同时也会执行全局的拦截器 -->
+		 针对某个路径（不）设置拦截器，同时也会执行全局的拦截器
 		<mvc:interceptor>
 			<mvc:mapping path="/secondFilter"/>
 			<bean class="other.SecondFilter" />
 		</mvc:interceptor>
 		<bean class="other.ThirdFilter"></bean>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 
 	<!-- 访问静态资源，但只能是非WEB-INF目录下的静态资源 
 		使用的serlvet是容器自身的default servlet，不同容器的名称可能不一样
@@ -80,8 +80,22 @@
 	<!-- 注册根据返回的视图名称去找相应的视图bean来得到view对象，上面的视图解析器得到的是InternalResourceView对象
 		 指定order的值提高该视图解析器的优先级
 	 -->
-<!-- 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="100"></property>
+	</bean>
+	
+	
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="statusCodes">
+			<props>
+				<prop key="list">500</prop>
+			</props>
+		</property>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="Exception">list</prop>
+			</props>
+		</property>
 	</bean> -->
 	
 	<mvc:annotation-driven>

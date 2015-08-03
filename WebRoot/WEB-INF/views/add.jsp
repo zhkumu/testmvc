@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <% int i=10/0; %>
 	<form:form action="create" method="post" modelAttribute="member">
 		<form:input path="name"/>
 		<form:input path="remark"/>

@@ -22,10 +22,28 @@
 			<param-value>classpath:config/mvc.xml</param-value>
 		</init-param>
 	</servlet>
+  <servlet>
+    <servlet-name>hello</servlet-name>
+    <servlet-class>servlet.Hello</servlet-class>
+  </servlet>
+  <!-- 匹配全部的请求，会覆盖springmvc的配置 -->
+<!--   <servlet>
+    <servlet-name>All</servlet-name>
+    <servlet-class>servlet.All</servlet-class>
+  </servlet> -->
+
 	<servlet-mapping>
 		<servlet-name>mvc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/servlet/hello</url-pattern>
+  </servlet-mapping>
+<!--   <servlet-mapping>
+    <servlet-name>All</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping> -->
 	
 	<!-- filter对象不能直接由ioc容器管理 -->
 <!-- 	
